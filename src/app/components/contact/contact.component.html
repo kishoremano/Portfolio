@@ -1,0 +1,97 @@
+<section id="contact" class="contact">
+  <div class="section-header">
+    <h2>Get In <span class="gradient-text">Touch</span></h2>
+    <p>Have an exciting project or vacancy? Drop a message and let's start talking.</p>
+  </div>
+
+  <div class="contact-container">
+    <!-- Contact Info Details -->
+    <div class="contact-info glass-panel">
+      <h3>Contact Info</h3>
+      <p class="contact-desc">Feel free to reach out. I will respond to you within 24 hours.</p>
+      
+      <div class="info-list">
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:kishoremano2000@gmail.com" class="info-link">kishoremano2000&#64;gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Location</h4>
+            <span class="info-text">Chennai / Coimbatore, India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form Panel -->
+    <div class="contact-form-panel glass-panel">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+        
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control" placeholder="John Doe"
+            [class.invalid-field]="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
+          <div class="error-msg" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.hasError('required')">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" formControlName="email" class="form-control" placeholder="john@example.com"
+            [class.invalid-field]="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+          <div class="error-msg" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('required')">
+            Email is required.
+          </div>
+          <div class="error-msg" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('email')">
+            Please enter a valid email address.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" formControlName="message" class="form-control" placeholder="Tell me about your project..."
+            [class.invalid-field]="contactForm.get('message')?.touched && contactForm.get('message')?.invalid"></textarea>
+          <div class="error-msg" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.hasError('required')">
+            Message is required.
+          </div>
+          <div class="error-msg" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.hasError('minlength')">
+            Message must be at least 10 characters long.
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary submit-btn" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">Send Message</span>
+          <span *ngIf="isSubmitting" class="spinner-container">
+            <span class="spinner"></span> Sending...
+          </span>
+        </button>
+
+        <!-- Success Alert -->
+        <div class="success-alert" *ngIf="submitSuccess">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Thank you! Your message has been sent successfully.</span>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>

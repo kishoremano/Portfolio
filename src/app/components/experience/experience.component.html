@@ -1,0 +1,30 @@
+<section id="experience" class="experience">
+  <div class="section-header">
+    <h2>Work <span class="gradient-text">Experience</span></h2>
+    <p>A timeline of my professional journey, contributions, and growth as a developer.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let exp of experiences; let i = index">
+      <div class="timeline-dot"></div>
+      
+      <div class="timeline-content glass-panel">
+        <div class="timeline-header">
+          <div>
+            <h3>{{ exp.role }}</h3>
+            <span class="timeline-company">{{ exp.company }}</span>
+          </div>
+          <span class="timeline-date">{{ exp.period }}</span>
+        </div>
+        
+        <ul class="timeline-desc-list">
+          <li *ngFor="let point of exp.description">{{ point }}</li>
+        </ul>
+        
+        <div class="timeline-tags">
+          <span class="timeline-tag" *ngFor="let tag of exp.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
