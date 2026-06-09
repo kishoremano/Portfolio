@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MotionFadeInDirective } from '../../directives/motion-fade-in.directive';
-import { MotionStaggerDirective } from '../../directives/motion-stagger.directive';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MotionFadeInDirective, MotionStaggerDirective],
+  imports: [CommonModule, ReactiveFormsModule, MotionFadeInDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })

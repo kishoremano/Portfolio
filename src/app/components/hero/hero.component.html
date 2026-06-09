@@ -1,29 +1,35 @@
 <section id="hero" class="hero">
-  <div class="hero-content" motionStagger [motionStaggerDelay]="0.1">
+  <div class="hero-content" motionStagger [motionStaggerDelay]="0.09" [motionStaggerY]="24">
     <div class="hero-badge">
       <span class="badge-dot"></span>
       Available for senior engineering roles
     </div>
 
     <h1 class="hero-title">
-      Senior .NET Engineer<br>
-      building <span class="gradient-text">enterprise systems</span>
-      at scale
+      Enterprise software<br>
+      built for <span class="gradient-text">scale and trust.</span>
     </h1>
 
     <p class="hero-subtitle">
-      Five years architecting and delivering production-grade platforms — IAM, ERP, and distributed services — with C#, .NET Core, Azure, and event-driven backends.
+      Senior .NET engineer building secure, production-grade enterprise platforms across identity, ERP, logistics, and cloud services using C#, .NET, Azure, and event-driven architecture.
     </p>
 
     <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">
-        View Projects
+      <a href="#contact" class="btn btn-primary">
+        Let's Talk
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
-      <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      <a href="/assets/kishore-resume.pdf" class="btn btn-secondary" download>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <path d="M5 21h14"></path>
+        </svg>
+        Download Resume
+      </a>
     </div>
 
     <div class="hero-stack">
@@ -34,27 +40,17 @@
     </div>
   </div>
 
-  <div class="hero-graphic">
-    <div class="ide-window glass-panel">
-      <div class="ide-header">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-        <span class="ide-tab">Program.cs</span>
+  <div class="hero-graphic" motionFadeIn [motionFadeInDelay]="0.25" [motionFadeInY]="24">
+    <div class="profile-frame">
+      <div class="profile-image-wrap">
+        <img src="/assets/kishore-profile.webp" alt="Kishore, senior .NET and Azure engineer" class="profile-image" width="800" height="800">
       </div>
-      <div class="ide-content">
-        <pre><code><span class="keyword">var</span> builder = WebApplication.<span class="method">CreateBuilder</span>(args);
-
-builder.Services.<span class="method">AddControllers</span>();
-builder.Services.<span class="method">AddDbContext</span>&lt;AppDbContext&gt;();
-builder.Services.<span class="method">AddMassTransit</span>(x =&gt;
-    x.<span class="method">UsingRabbitMq</span>((ctx, cfg) =&gt;
-        cfg.<span class="method">ConfigureEndpoints</span>(ctx)));
-
-<span class="keyword">var</span> app = builder.<span class="method">Build</span>();
-app.<span class="method">UseAuthentication</span>();
-app.<span class="method">MapControllers</span>();
-app.<span class="method">Run</span>();</code></pre>
+      <div class="profile-meta glass-panel">
+        <span class="profile-status"></span>
+        <div>
+          <strong>Senior .NET Engineer</strong>
+          <span>Azure · Distributed Systems · IAM</span>
+        </div>
       </div>
     </div>
   </div>

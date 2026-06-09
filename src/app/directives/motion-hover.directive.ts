@@ -16,11 +16,12 @@ export class MotionHoverDirective implements AfterViewInit, OnDestroy {
     const element = this.el.nativeElement;
 
     this.enterHandler = () => {
-      animate(element, { y: -4 }, { duration: 0.25, ease: EASE });
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      animate(element, { y: -6, scale: 1.012 }, { duration: 0.25, ease: EASE });
     };
 
     this.leaveHandler = () => {
-      animate(element, { y: 0 }, { duration: 0.3, ease: EASE });
+      animate(element, { y: 0, scale: 1 }, { duration: 0.3, ease: EASE });
     };
 
     element.addEventListener('mouseenter', this.enterHandler);

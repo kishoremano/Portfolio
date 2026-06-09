@@ -14,7 +14,17 @@
       <li><a href="#skills" class="nav-link">Skills</a></li>
       <li><a href="#experience" class="nav-link">Experience</a></li>
       <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#contact" class="btn btn-secondary nav-cta">Let's Talk</a></li>
+      <li>
+        <a href="/assets/kishore-resume.pdf" class="btn btn-secondary nav-cta" download>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <path d="M5 21h14"></path>
+          </svg>
+          Resume
+        </a>
+      </li>
+      <li><a href="#contact" class="btn btn-primary nav-cta">Let's Talk</a></li>
     </ul>
 
     <!-- Mobile Menu Toggle Button -->
@@ -32,6 +42,16 @@
       <li><a href="#skills" class="mobile-link" (click)="closeMobileMenu()">Skills</a></li>
       <li><a href="#experience" class="mobile-link" (click)="closeMobileMenu()">Experience</a></li>
       <li><a href="#projects" class="mobile-link" (click)="closeMobileMenu()">Projects</a></li>
+      <li>
+        <a href="/assets/kishore-resume.pdf" class="btn btn-secondary" download (click)="closeMobileMenu()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <path d="M5 21h14"></path>
+          </svg>
+          Download Resume
+        </a>
+      </li>
       <li><a href="#contact" class="btn btn-primary" (click)="closeMobileMenu()">Let's Talk</a></li>
     </ul>
   </div>
