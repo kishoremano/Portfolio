@@ -1,75 +1,72 @@
-.about {
-  position: relative;
-}
-
 .about-container {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 32px;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
   align-items: stretch;
 }
 
 .about-text {
-  padding: 40px;
+  padding: 36px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
 .about-text h3 {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .about-text p {
   color: var(--text-secondary);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
 }
 
 .specializations {
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .specializations h4 {
-  font-size: 1rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
   margin-bottom: 12px;
+  font-weight: 500;
 }
 
 .spec-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .spec-tag {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--card-border);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 0.85rem;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-secondary);
   transition: all var(--transition-fast);
 }
 
 .spec-tag:hover {
-  background: rgba(177, 39, 255, 0.05);
-  border-color: var(--secondary);
+  border-color: rgba(0, 188, 242, 0.2);
   color: var(--text-primary);
-  transform: translateY(-2px);
 }
 
 .about-stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 
 .stat-card {
-  padding: 32px 24px;
+  padding: 28px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -78,17 +75,18 @@
 }
 
 .stat-value {
-  font-size: 2.8rem;
-  font-weight: 800;
+  font-size: 2.25rem;
+  font-weight: 600;
   font-family: var(--font-heading);
-  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 6px;
 }
 
 .stat-label {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
 }
 
 @media (max-width: 992px) {
@@ -101,8 +99,8 @@
   .about-text {
     padding: 24px;
   }
-  
+
   .about-stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }

@@ -1,38 +1,43 @@
 <section id="about" class="about">
-  <div class="section-header">
-    <h2>About <span class="gradient-text">Me</span></h2>
-    <p>My journey in software engineering and the domain expertise I bring to the table.</p>
+  <div class="section-header" motionFadeIn>
+    <span class="section-label">About</span>
+    <h2>Enterprise engineer with<br><span class="gradient-text">full-stack depth</span></h2>
+    <p>Specializing in .NET backends, distributed systems, and the kind of reliability enterprise teams depend on.</p>
   </div>
 
   <div class="about-container">
-    <div class="about-text glass-panel">
-      <h3>Who I Am</h3>
+    <div class="about-text glass-panel" motionFadeIn [motionFadeInDelay]="0.1">
+      <h3>Background</h3>
       <p>
-        I am a dedicated .NET Professional with nearly 5 years of hands-on experience in full-cycle application development and maintenance. I specialize in building, optimizing, and maintaining enterprise web applications across complex domains.
+        Senior .NET engineer with nearly five years building and maintaining production systems across IAM, ERP, logistics, and healthcare domains. I focus on clean architecture, performance at scale, and shipping code that teams can maintain for years.
       </p>
       <p>
-        My expertise spans Project Management systems, ERPs, Parcel tracking solutions, and high-security Identity and Access Management (IAM) platforms. I have a strong track record of maintaining legacy codebases, fixing production bottlenecks, and introducing modern automated flows.
-      </p>
-      <p>
-        I work extensively with **C#, .NET Core, .NET Framework, MS SQL, PL/SQL, and the ABP Framework**. I am highly skilled at automating processes using **Hangfire**, managing async event streams with **RabbitMQ / Kafka**, and creating structured data reports via **Crystal Reports**.
+        From legacy .NET Framework modernization to greenfield .NET Core microservices, I work across the full stack — C#, Entity Framework, MS SQL, PL/SQL, RabbitMQ, Kafka, and Hangfire — with a strong bias toward measurable outcomes.
       </p>
 
       <div class="specializations">
-        <h4>Core Focus Domains</h4>
-        <div class="spec-tags">
-          <span class="spec-tag">Identity & Access Management (IAM)</span>
+        <h4>Domain Expertise</h4>
+        <div class="spec-tags" motionStagger [motionStaggerDelay]="0.05">
+          <span class="spec-tag">Identity & Access Management</span>
           <span class="spec-tag">ERP Systems</span>
-          <span class="spec-tag">Parcel Management</span>
+          <span class="spec-tag">Parcel & Logistics</span>
           <span class="spec-tag">Project Management</span>
           <span class="spec-tag">ABP Framework</span>
-          <span class="spec-tag">Database Tuning & PL/SQL</span>
+          <span class="spec-tag">Database Optimization</span>
         </div>
       </div>
     </div>
 
-    <div class="about-stats-grid">
+    <div class="about-stats-grid" motionStagger [motionStaggerDelay]="0.08">
       <div class="stat-card glass-panel" *ngFor="let stat of stats">
-        <div class="stat-value gradient-text">{{ stat.value }}</div>
+        <div class="stat-value">
+          <span
+            [motionCounter]="stat.value"
+            [counterSuffix]="stat.suffix"
+            [counterPrefix]="stat.prefix"
+            [counterDecimals]="stat.decimals"
+          ></span>
+        </div>
         <div class="stat-label">{{ stat.label }}</div>
       </div>
     </div>

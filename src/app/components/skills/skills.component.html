@@ -1,13 +1,14 @@
 <section id="skills" class="skills">
-  <div class="section-header">
-    <h2>Technical <span class="gradient-text">Skills</span></h2>
-    <p>My core technology stack and levels of proficiency built through commercial development.</p>
+  <div class="section-header" motionFadeIn>
+    <span class="section-label">Expertise</span>
+    <h2>Technical <span class="gradient-text">stack</span></h2>
+    <p>Technologies honed through years of commercial development and production ownership.</p>
   </div>
 
-  <div class="skills-grid">
+  <div class="skills-grid" motionStagger [motionStaggerDelay]="0.1">
     <div class="skills-category-card glass-panel" *ngFor="let category of skillCategories">
       <h3>{{ category.title }}</h3>
-      
+
       <div class="skills-list">
         <div class="skill-item" *ngFor="let skill of category.skills">
           <div class="skill-info">
@@ -15,7 +16,7 @@
             <span class="skill-level">{{ skill.level }}%</span>
           </div>
           <div class="skill-bar-bg">
-            <div class="skill-bar-fill" [style.width.%]="skill.level"></div>
+            <div class="skill-bar-fill" [attr.data-width]="skill.level"></div>
           </div>
         </div>
       </div>

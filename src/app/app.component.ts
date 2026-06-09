@@ -7,6 +7,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MouseGlowComponent } from './components/mouse-glow/mouse-glow.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ExperienceComponent,
     ProjectsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    MouseGlowComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

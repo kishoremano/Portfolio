@@ -1,52 +1,48 @@
 .footer {
-  background: rgba(8, 12, 21, 0.95);
+  background: var(--bg-elevated);
   border-top: 1px solid var(--card-border);
-  padding: 60px 24px 20px;
+  padding: 56px 24px 24px;
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 40px;
+  gap: 40px;
+  margin-bottom: 36px;
 }
 
 .footer-brand .brand-logo {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.2rem;
-  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 12px;
 }
 
 .footer-brand .logo-icon {
-  color: var(--primary);
-}
-
-.footer-brand .dot {
-  color: var(--secondary);
+  color: var(--azure-cyan);
 }
 
 .footer-desc {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  max-width: 360px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  max-width: 320px;
+  line-height: 1.65;
 }
 
 .footer-links h4,
 .footer-socials h4 {
-  font-size: 1rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  font-weight: 500;
 }
 
 .footer-links ul {
@@ -59,58 +55,57 @@
 
 .footer-links ul li a {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: color var(--transition-fast);
 }
 
 .footer-links ul li a:hover {
-  color: var(--primary);
+  color: var(--azure-cyan);
 }
 
 .social-icons {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--card-border);
-  color: var(--text-secondary);
+  color: var(--text-muted);
   transition: all var(--transition-normal);
 }
 
 .social-icon:hover {
-  background: rgba(0, 242, 254, 0.1);
-  color: var(--primary);
-  border-color: var(--primary);
-  transform: translateY(-3px);
+  background: rgba(0, 188, 242, 0.06);
+  color: var(--azure-cyan);
+  border-color: rgba(0, 188, 242, 0.2);
 }
 
 .footer-bottom {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--card-border);
   text-align: center;
 }
 
 .footer-bottom p {
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
-  
+
   .footer-desc {
     max-width: 100%;
   }

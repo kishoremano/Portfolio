@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MotionFadeInDirective } from '../../directives/motion-fade-in.directive';
+import { MotionStaggerDirective } from '../../directives/motion-stagger.directive';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MotionFadeInDirective, MotionStaggerDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
@@ -30,13 +32,11 @@ export class ContactComponent {
 
     this.isSubmitting = true;
 
-    // Simulate API request
     setTimeout(() => {
       this.isSubmitting = false;
       this.submitSuccess = true;
       this.contactForm.reset();
 
-      // Reset success message after 5 seconds
       setTimeout(() => {
         this.submitSuccess = false;
       }, 5000);

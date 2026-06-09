@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MotionFadeInDirective } from '../../directives/motion-fade-in.directive';
+import { MotionStaggerDirective } from '../../directives/motion-stagger.directive';
+import { animate, inView, stagger } from 'motion';
+
+const EASE = [0.25, 0.1, 0.25, 1] as const;
 
 interface Skill {
   name: string;
@@ -14,37 +19,58 @@ interface SkillCategory {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MotionFadeInDirective, MotionStaggerDirective],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.css'
 })
-export class SkillsComponent {
+export class SkillsComponent implements AfterViewInit {
+  private el = inject(ElementRef);
+
   skillCategories: SkillCategory[] = [
     {
-      title: 'Programming & Frameworks',
+      title: 'Backend & Frameworks',
       skills: [
-        { name: 'C# Programming', level: 95 },
-        { name: '.NET Core & .NET Framework', level: 90 },
+        { name: 'C# / .NET Core & Framework', level: 95 },
         { name: 'ABP Framework', level: 85 },
-        { name: 'Entity Framework Core', level: 90 }
+        { name: 'Entity Framework Core', level: 90 },
+        { name: 'REST APIs & Web Services', level: 90 }
       ]
     },
     {
-      title: 'Databases & Reporting',
+      title: 'Data & Infrastructure',
       skills: [
         { name: 'MS SQL Server', level: 90 },
         { name: 'PL/SQL (Oracle)', level: 85 },
-        { name: 'Crystal Reports', level: 80 }
+        { name: 'RabbitMQ / Kafka', level: 80 },
+        { name: 'Hangfire', level: 85 }
       ]
     },
     {
-      title: 'Messaging & Web Stack',
+      title: 'Frontend & Tooling',
       skills: [
-        { name: 'REST APIs & Web Services', level: 90 },
-        { name: 'RabbitMQ / Kafka (basic)', level: 80 },
-        { name: 'Hangfire (Background Jobs)', level: 85 },
-        { name: 'HTML5, CSS3, JS & jQuery / AJAX', level: 85 }
+        { name: 'Angular / TypeScript', level: 80 },
+        { name: 'HTML5, CSS3, JavaScript', level: 85 },
+        { name: 'Crystal Reports', level: 80 },
+        { name: 'Git / GitLab CI', level: 85 }
       ]
     }
   ];
+
+  ngAfterViewInit(): void {
+    const bars = this.el.nativeElement.querySelectorAll('.skill-bar-fill') as NodeListOf<HTMLElement>;
+
+    bars.forEach(bar => {
+      const target = bar.dataset['width'] ?? '0';
+      bar.style.width = '0%';
+
+      const stop = inView(
+        bar,
+        () => {
+          animate(bar, { width: `${target}%` }, { duration: 1, ease: EASE });
+          stop();
+        },
+        { amount: 0.5 }
+      );
+    });
+  }
 }

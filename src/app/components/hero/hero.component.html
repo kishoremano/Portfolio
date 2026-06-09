@@ -1,62 +1,59 @@
 <section id="hero" class="hero">
-  <div class="hero-content">
-    <div class="hero-badge fade-in">
+  <div class="hero-content" motionStagger [motionStaggerDelay]="0.1">
+    <div class="hero-badge">
       <span class="badge-dot"></span>
-      Available for new opportunities
+      Available for senior engineering roles
     </div>
-    
+
     <h1 class="hero-title">
-      Hi, I'm <span class="gradient-text">Kishore</span><br>
-      Building <span class="text-glow">Robust .NET Backend</span> & Standout Web Apps
+      Senior .NET Engineer<br>
+      building <span class="gradient-text">enterprise systems</span>
+      at scale
     </h1>
-    
+
     <p class="hero-subtitle">
-      A dedicated .NET Developer with a passion for designing clean microservice architectures, high-performance Web APIs, and engaging frontend experiences in Angular.
+      Five years architecting and delivering production-grade platforms — IAM, ERP, and distributed services — with C#, .NET Core, Azure, and event-driven backends.
     </p>
-    
+
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">
-        <span>View My Work</span>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        View Projects
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
-      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    </div>
+
+    <div class="hero-stack">
+      <span class="stack-item">.NET 8</span>
+      <span class="stack-item">Azure</span>
+      <span class="stack-item">Microservices</span>
+      <span class="stack-item">SQL Server</span>
     </div>
   </div>
 
-  <div class="hero-graphic float-anim">
-    <!-- Sleek Glassmorphic IDE Mockup -->
+  <div class="hero-graphic">
     <div class="ide-window glass-panel">
       <div class="ide-header">
         <span class="dot red"></span>
         <span class="dot yellow"></span>
         <span class="dot green"></span>
-        <span class="ide-tab">Startup.cs</span>
+        <span class="ide-tab">Program.cs</span>
       </div>
       <div class="ide-content">
-        <pre><code><span class="keyword">using</span> Microsoft.AspNetCore.Builder;
+        <pre><code><span class="keyword">var</span> builder = WebApplication.<span class="method">CreateBuilder</span>(args);
 
-<span class="keyword">var</span> builder = WebApplication.<span class="method">CreateBuilder</span>(args);
-
-<span class="comment">// Add services to the container.</span>
 builder.Services.<span class="method">AddControllers</span>();
-builder.Services.<span class="method">AddEndpointsApiExplorer</span>();
-builder.Services.<span class="method">AddSwaggerGen</span>();
+builder.Services.<span class="method">AddDbContext</span>&lt;AppDbContext&gt;();
+builder.Services.<span class="method">AddMassTransit</span>(x =&gt;
+    x.<span class="method">UsingRabbitMq</span>((ctx, cfg) =&gt;
+        cfg.<span class="method">ConfigureEndpoints</span>(ctx)));
 
 <span class="keyword">var</span> app = builder.<span class="method">Build</span>();
-
-<span class="keyword">if</span> (app.Environment.<span class="method">IsDevelopment</span>())
-&#123;
-    app.<span class="method">UseSwagger</span>();
-    app.<span class="method">UseSwaggerUI</span>();
-&#125;
-
-app.<span class="method">UseHttpsRedirection</span>();
-app.<span class="method">UseAuthorization</span>();
+app.<span class="method">UseAuthentication</span>();
 app.<span class="method">MapControllers</span>();
-
 app.<span class="method">Run</span>();</code></pre>
       </div>
     </div>
