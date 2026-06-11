@@ -5,20 +5,26 @@
     <p>Technologies honed through years of commercial development and production ownership.</p>
   </div>
 
-  <div class="skills-grid" motionStagger [motionStaggerDelay]="0.1">
+  <div class="skills-grid" motionStagger [motionStaggerDelay]="0.08">
     <div class="skills-category-card glass-panel" *ngFor="let category of skillCategories">
-      <h3>{{ category.title }}</h3>
+      <div class="category-header">
+        <div class="category-icon-wrap">
+          <ng-container [ngSwitch]="category.title">
+            <svg *ngSwitchCase="'Backend Engineering'" viewBox="0 0 24 24" class="category-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+            <svg *ngSwitchCase="'Cloud & DevOps'" viewBox="0 0 24 24" class="category-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a6 6 0 0 0 0-12z"></path></svg>
+            <svg *ngSwitchCase="'Messaging & Background Processing'" viewBox="0 0 24 24" class="category-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            <svg *ngSwitchCase="'Identity & Security'" viewBox="0 0 24 24" class="category-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <svg *ngSwitchCase="'Databases'" viewBox="0 0 24 24" class="category-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+            <svg *ngSwitchCase="'Frontend & Runtimes'" viewBox="0 0 24 24" class="category-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </ng-container>
+        </div>
+        <h3>{{ category.title }}</h3>
+      </div>
 
       <div class="skills-list">
-        <div class="skill-item" *ngFor="let skill of category.skills">
-          <div class="skill-info">
-            <span class="skill-name">{{ skill.name }}</span>
-            <span class="skill-level">{{ skill.level }}%</span>
-          </div>
-          <div class="skill-bar-bg">
-            <div class="skill-bar-fill" [attr.data-width]="skill.level"></div>
-          </div>
-        </div>
+        <span class="skill-badge" *ngFor="let skill of category.skills">
+          {{ skill }}
+        </span>
       </div>
     </div>
   </div>

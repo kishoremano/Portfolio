@@ -1,0 +1,20 @@
+<section id="impact" class="impact">
+  <div class="metrics-grid" motionStagger [motionStaggerDelay]="0.08">
+    <div class="metric-card glass-panel" *ngFor="let m of metrics">
+      <div class="metric-value-wrap">
+        <span *ngIf="m.type === 'counter'"
+              [motionCounter]="m.value!"
+              [counterSuffix]="m.suffix || ''"
+              class="metric-number gradient-text">
+        </span>
+        <span *ngIf="m.type === 'text'" class="metric-text gradient-text">
+          {{ m.textValue }}
+        </span>
+      </div>
+      <div class="metric-info">
+        <h4 class="metric-label">{{ m.label }}</h4>
+        <p class="metric-sublabel">{{ m.subLabel }}</p>
+      </div>
+    </div>
+  </div>
+</section>

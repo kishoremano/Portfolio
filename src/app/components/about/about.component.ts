@@ -21,9 +21,9 @@ interface Stat {
 })
 export class AboutComponent {
   stats: Stat[] = [
-    { value: 5, suffix: '+', prefix: '', decimals: 0, label: 'Years Experience' },
-    { value: 5, suffix: '+', prefix: '', decimals: 0, label: 'Enterprise Projects' },
-    { value: 2, suffix: '', prefix: '', decimals: 0, label: 'Companies' },
-    { value: 99.9, suffix: '%', prefix: '', decimals: 1, label: 'API SLA Maintained' }
+    { value: 99.9, suffix: '%', prefix: '', decimals: 1, label: 'API SLA Uptime' },
+    { value: 10, suffix: 'k+', prefix: '', decimals: 0, label: 'Identities Automated' },
+    { value: 100, suffix: '%', prefix: '', decimals: 0, label: 'Production Uptime' },
+    { value: 5, suffix: '+', prefix: '', decimals: 0, label: 'Production Deployments' }
   ];
 }

@@ -34,13 +34,31 @@
   border-radius: 50%;
 }
 
-.hero-title {
-  font-size: clamp(3.25rem, 5.4vw, 5rem);
-  font-weight: 650;
-  line-height: 1.02;
-  letter-spacing: -0.055em;
+.hero-greeting {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--azure-cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero-name {
+  font-size: clamp(3.75rem, 7vw, 5.5rem);
+  font-weight: 750;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+}
+
+.hero-role {
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   margin-bottom: 24px;
-  max-width: 760px;
 }
 
 .hero-subtitle {
@@ -166,8 +184,8 @@
     align-items: center;
   }
 
-  .hero-title {
-    font-size: clamp(2.7rem, 8vw, 4.2rem);
+  .hero-name {
+    font-size: clamp(3rem, 9vw, 4.5rem);
   }
 
   .hero-subtitle {
@@ -185,8 +203,8 @@
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 2.55rem;
+  .hero-name {
+    font-size: 2.75rem;
   }
 
   .hero-actions {
