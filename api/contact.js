@@ -168,7 +168,8 @@ async function handler(req, res) {
       res.statusCode = 500;
       res.setHeader('Content-Type', 'application/json');
       return res.end(JSON.stringify({
-        error: 'Unable to send your message. Please try again or email me directly.'
+        error: 'Unable to send your message. Please try again or email me directly.',
+        details: 'RESEND_API_KEY is missing from environment variables. In Vercel, ensure RESEND_API_KEY is enabled for both Preview and Production environments, then redeploy.'
       }));
     }
   }
@@ -244,7 +245,8 @@ async function handler(req, res) {
     res.statusCode = 500;
     res.setHeader('Content-Type', 'application/json');
     return res.end(JSON.stringify({
-      error: 'Unable to send your message. Please try again or email me directly.'
+      error: 'Unable to send your message. Please try again or email me directly.',
+      details: error.message || 'Server exception occurred while sending email.'
     }));
   }
 }
