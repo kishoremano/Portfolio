@@ -148,7 +148,7 @@ async function handler(req, res) {
     timeStyle: 'long'
   });
 
-  const recipient = 'kishoremano2000@gmail.com';
+  const recipient = process.env.RESEND_TO_EMAIL || 'kishoremano2000@gmail.com';
   const fromEmail = process.env.RESEND_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>';
   const apiKey = process.env.RESEND_API_KEY;
 
@@ -227,7 +227,8 @@ async function handler(req, res) {
       res.statusCode = 502;
       res.setHeader('Content-Type', 'application/json');
       return res.end(JSON.stringify({
-        error: 'Unable to send your message. Please try again or email me directly.'
+        error: 'Unable to send your message. Please try again or email me directly.',
+        details: errBody?.message || 'Email delivery service returned an error'
       }));
     }
 

@@ -92,10 +92,12 @@ export class ContactComponent {
         this.contactForm.markAsPristine();
         this.contactForm.markAsUntouched();
       } else {
+        console.error('[Contact Form Error] Status:', res.status, 'Response:', data);
         this.submitError = true;
         this.errorMessage = 'Unable to send your message. Please try again or email me directly.';
       }
-    } catch {
+    } catch (err) {
+      console.error('[Contact Form Network/Fetch Error]:', err);
       this.submitError = true;
       this.errorMessage = 'Unable to send your message. Please try again or email me directly.';
     } finally {
