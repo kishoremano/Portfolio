@@ -2,23 +2,25 @@
   <div class="section-header" motionFadeIn>
     <span class="section-label">Work</span>
     <h2>Selected <span class="gradient-text">projects</span></h2>
-    <p>Production systems I've designed, built, and maintained across enterprise domains.</p>
+    <p>Projects I've worked on across IAM, ERP, parcel management, project management, and healthcare.</p>
   </div>
 
   <div class="projects-grid" motionStagger [motionStaggerDelay]="0.08">
     <div class="project-card glass-panel" *ngFor="let project of projects" motionHover>
-      <div class="project-image-container">
-        <img [src]="project.imageUrl" [alt]="project.title" class="project-image" loading="lazy">
-        <span class="project-category-badge">{{ project.category }}</span>
+      <div class="project-num">{{ project.number }}</div>
+
+      <h3 class="project-title">{{ project.title }}</h3>
+
+      <div class="project-meta">
+        <span class="project-role">{{ project.role }}</span>
+        <span class="meta-separator">·</span>
+        <span class="project-duration">{{ project.duration }}</span>
       </div>
 
-      <div class="project-info">
-        <h3>{{ project.title }}</h3>
-        <p class="project-desc">{{ project.description }}</p>
+      <p class="project-desc">{{ project.description }}</p>
 
-        <div class="project-tech-tags">
-          <span class="tech-tag" *ngFor="let t of project.tech">{{ t }}</span>
-        </div>
+      <div class="project-tech-tags">
+        <span class="tech-tag" *ngFor="let t of project.tech">{{ t }}</span>
       </div>
     </div>
   </div>

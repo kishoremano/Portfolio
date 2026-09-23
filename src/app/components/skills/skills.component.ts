@@ -18,28 +18,29 @@ interface SkillCategory {
 export class SkillsComponent {
   skillCategories: SkillCategory[] = [
     {
-      title: 'Backend Engineering',
-      skills: ['.NET 8', 'ASP.NET Core', 'ABP Framework', 'REST APIs']
-    },
-    {
-      title: 'Cloud & DevOps',
-      skills: ['Azure', 'Docker', 'Kubernetes', 'AKS']
-    },
-    {
-      title: 'Messaging & Background Processing',
-      skills: ['Kafka', 'RabbitMQ', 'Hangfire']
-    },
-    {
-      title: 'Identity & Security',
-      skills: ['Active Directory', 'LDAP', 'IAM', 'Access Provisioning']
+      title: 'Backend Development',
+      skills: ['C#', '.NET Framework', '.NET Core', 'ABP Framework', 'ASP.NET']
     },
     {
       title: 'Databases',
-      skills: ['SQL Server', 'PL/SQL', 'Entity Framework']
+      skills: ['MS SQL', 'PL/SQL', 'Entity Framework']
     },
     {
-      title: 'Frontend & Runtimes',
-      skills: ['Angular', 'Node.js', '.NET Framework', 'TypeScript / JS']
+      title: 'Messaging & Background Jobs',
+      skills: ['RabbitMQ', 'Kafka (Basic)', 'Hangfire']
+    },
+    {
+      title: 'Identity & Security',
+      skills: ['Identity & Access Management (IAM)', 'Active Directory', 'LDAP', 'Access Provisioning']
+    },
+    {
+      title: 'Web Technologies',
+      skills: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'AJAX']
+    },
+    {
+      title: 'Tools & Methodologies',
+      skills: ['Visual Studio', 'GitLab', 'REST APIs', 'Agile/Scrum']
     }
   ];
 }
+

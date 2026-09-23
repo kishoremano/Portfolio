@@ -25,9 +25,9 @@ export class ExperienceComponent {
       company: 'Tenxity Solutions · Chennai',
       period: 'Nov 2024 — Present',
       description: [
-        'Architecting an enterprise IAM platform for A-star Singapore — user identities, entitlements, and access provisioning.',
-        'Building on ABP Framework with Kafka event streaming, Hangfire background jobs, and Active Directory integration.',
-        'Maintaining legacy provisioning flows and resolving production incidents to uphold SLA commitments.'
+        'Contributing to the development of an enterprise IAM platform for managing identities, entitlements, and access provisioning.',
+        'Working with ABP Framework, Kafka, Hangfire, and Active Directory integrations to support provisioning and automation.',
+        'Maintaining legacy provisioning flows, resolving production issues, and delivering application updates based on client requirements.'
       ],
       tags: ['C#', '.NET Core', 'ABP Framework', 'Kafka', 'Hangfire', 'Active Directory']
     },
@@ -36,9 +36,9 @@ export class ExperienceComponent {
       company: 'Anga Infotech · Coimbatore',
       period: 'Sep 2021 — Oct 2024',
       description: [
-        'Delivered T-soft ERP for KDHP tea plantation — inventory, production, HR, sales, distribution, and financial reporting.',
-        'Built Speed Parcel Service with QR tracking, access controls, and real-time AJAX notifications.',
-        'Designed AIT PMS and Kavya Ortho clinical systems; optimized MS SQL and PL/SQL stored procedures.'
+        'Developed and maintained T-soft ERP for tea plantation operations, covering inventory, production, employee management, sales, distribution, finance, and reporting.',
+        'Developed Speed Parcel Service with QR code integration, user access control, notification systems, and secure data handling.',
+        'Developed AIT PMS and Kavya Ortho clinical applications for project management and healthcare operations.'
       ],
       tags: ['.NET Framework', 'MS SQL', 'PL/SQL', 'Entity Framework', 'Crystal Reports']
     }

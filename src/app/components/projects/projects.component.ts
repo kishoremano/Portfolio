@@ -5,11 +5,12 @@ import { MotionStaggerDirective } from '../../directives/motion-stagger.directiv
 import { MotionHoverDirective } from '../../directives/motion-hover.directive';
 
 interface Project {
+  number: string;
   title: string;
-  category: string;
+  role: string;
+  duration: string;
   description: string;
   tech: string[];
-  imageUrl: string;
 }
 
 @Component({
@@ -22,39 +23,44 @@ interface Project {
 export class ProjectsComponent {
   projects: Project[] = [
     {
+      number: '01',
       title: 'Identity & Access Management Platform',
-      category: 'IAM & Security',
-      description: 'Delivered enterprise identity lifecycle automation and access provisioning for large-scale organizational environments, securing digital assets and compliance.',
-      tech: ['.NET Core', 'ABP Framework', 'Kafka', 'Hangfire'],
-      imageUrl: 'images/iam.png'
+      role: 'Software Consultant',
+      duration: 'Nov 2024 – Present',
+      description: 'Enterprise IAM platform for managing user identities, entitlements, and access provisioning. Contributed to the development of a new ABP-based platform while maintaining the existing IAM system.',
+      tech: ['.NET Core', 'ABP Framework', 'Kafka', 'Hangfire', 'Active Directory']
     },
     {
+      number: '02',
       title: 'T-soft Tea Plantation ERP',
-      category: 'Enterprise Software',
-      description: 'Engineered an end-to-end plantation ERP system to streamline supply chain logistics, inventory management, production tracking, and multi-site financial operations.',
-      tech: ['.NET Framework', 'MS SQL', 'Entity Framework'],
-      imageUrl: 'images/erp.png'
+      role: 'Maintenance Developer',
+      duration: 'Sep 2023 – Oct 2024',
+      description: 'ERP application supporting inventory, production, employee management, sales and distribution, financial management, and reporting.',
+      tech: ['.NET Framework', 'MS SQL', 'Entity Framework', 'Crystal Reports']
     },
     {
-      title: 'Speed Parcel Service Portal',
-      category: 'Logistics',
-      description: 'Developed a high-throughput logistics tracking portal with QR authentication and real-time shipment routing, decreasing package sorting overhead.',
-      tech: ['.NET Core', 'MS SQL', 'jQuery', 'AJAX'],
-      imageUrl: 'images/parcel.png'
+      number: '03',
+      title: 'Speed Parcel Service',
+      role: 'Software Developer',
+      duration: 'Jan 2023 – Jun 2024',
+      description: 'Web application for parcel tracking, organization, and distribution with QR code integration, user access control, notification systems, and secure data storage.',
+      tech: ['.NET', 'MS SQL', 'jQuery', 'AJAX']
     },
     {
+      number: '04',
       title: 'AIT Project Management System',
-      category: 'Web Application',
-      description: 'Designed a corporate performance-oriented suite to optimize resource utilization, automate milestone tracking, and deliver real-time operational analytics.',
-      tech: ['.NET Core', 'Entity Framework', 'MS SQL'],
-      imageUrl: 'images/pms.png'
+      role: 'Software Developer',
+      duration: 'Apr 2022 – Dec 2022',
+      description: 'Project management system covering project planning, resource management, task management, and reporting.',
+      tech: ['.NET', 'Entity Framework', 'MS SQL']
     },
     {
+      number: '05',
       title: 'Clinical Management System',
-      category: 'Healthcare IT',
-      description: 'Built a unified clinical ERP to automate scheduling, medical charting, pharmacy inventory control, and secure billing for patient care efficiency.',
-      tech: ['.NET Framework', 'MS SQL', 'JavaScript'],
-      imageUrl: 'images/clinical.png'
+      role: 'Software Developer',
+      duration: 'Dec 2021 – Mar 2022',
+      description: 'Web application supporting administrative, clinical, and financial functions for hospital operations and patient care management.',
+      tech: ['.NET Framework', 'MS SQL', 'JavaScript']
     }
   ];
 }

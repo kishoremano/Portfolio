@@ -14,31 +14,92 @@ export class ContactComponent {
   contactForm: FormGroup;
   isSubmitting = false;
   submitSuccess = false;
+  submitError = false;
+  errorMessage = '';
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
-      name: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(10)]]
+      message: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(5000)]],
+      _gotcha: ['']
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
+    if (this.isSubmitting) return;
+
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
 
     this.isSubmitting = true;
+    this.submitSuccess = false;
+    this.submitError = false;
+    this.errorMessage = '';
 
-    setTimeout(() => {
+    const payload = {
+      name: this.contactForm.value.name,
+      email: this.contactForm.value.email,
+      message: this.contactForm.value.message,
+      _gotcha: this.contactForm.value._gotcha
+    };
+
+    try {
+      let res: Response;
+
+      try {
+        res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const contentType = res.headers.get('content-type') || '';
+        // In local development if Angular dev-server served index.html instead of proxying to API
+        if (typeof window !== 'undefined' && window.location.hostname === 'localhost' && (!res.ok || contentType.includes('text/html'))) {
+          try {
+            const localRes = await fetch('http://localhost:3000/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            if (localRes.ok || localRes.headers.get('content-type')?.includes('application/json')) {
+              res = localRes;
+            }
+          } catch {
+            // Keep original res
+          }
+        }
+      } catch (networkErr) {
+        if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+          res = await fetch('http://localhost:3000/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } else {
+          throw networkErr;
+        }
+      }
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
+        this.submitSuccess = true;
+        this.contactForm.reset();
+        this.contactForm.markAsPristine();
+        this.contactForm.markAsUntouched();
+      } else {
+        this.submitError = true;
+        this.errorMessage = 'Unable to send your message. Please try again or email me directly.';
+      }
+    } catch {
+      this.submitError = true;
+      this.errorMessage = 'Unable to send your message. Please try again or email me directly.';
+    } finally {
       this.isSubmitting = false;
-      this.submitSuccess = true;
-      this.contactForm.reset();
-
-      setTimeout(() => {
-        this.submitSuccess = false;
-      }, 5000);
-    }, 1500);
+    }
   }
 }
